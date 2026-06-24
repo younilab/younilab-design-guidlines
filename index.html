@@ -237,72 +237,7 @@
       border-color: var(--primary);
     }
 
-    .docs-section {
-      border-top: 1px solid var(--border);
-      padding-top: 48px;
-    }
 
-    .docs-section h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--fg-light);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 24px;
-    }
-
-    .docs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .doc-link-card {
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-decoration: none;
-      color: inherit;
-      transition: var(--transition);
-    }
-
-    .doc-link-card:hover {
-      background: var(--bg);
-      border-color: var(--border);
-      transform: translateX(4px);
-    }
-
-    .doc-info {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .doc-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .doc-desc {
-      font-size: 12px;
-      color: var(--fg-light);
-    }
-
-    .arrow-icon {
-      font-size: 16px;
-      color: var(--fg-light);
-      transition: var(--transition);
-    }
-
-    .doc-link-card:hover .arrow-icon {
-      color: var(--primary);
-      transform: translateX(4px);
-    }
 
     footer {
       background: var(--bg);
@@ -399,38 +334,7 @@
       </a>
     </div>
 
-    <!-- Markdown documents section -->
-    <section class="docs-section">
-      <h3>團隊協作與開發文件 (Markdown)</h3>
-      <div class="docs-grid">
-        <!-- DESIGN.md -->
-        <a href="./DESIGN.md" class="doc-link-card" target="_blank">
-          <div class="doc-info">
-            <span class="doc-title">DESIGN.md</span>
-            <span class="doc-desc">設計語彙與原則規範說明</span>
-          </div>
-          <span class="arrow-icon">↗</span>
-        </a>
 
-        <!-- COMPONENTS.md -->
-        <a href="./COMPONENTS.md" class="doc-link-card" target="_blank">
-          <div class="doc-info">
-            <span class="doc-title">COMPONENTS.md</span>
-            <span class="doc-desc">組件規格與開發實踐文件</span>
-          </div>
-          <span class="arrow-icon">↗</span>
-        </a>
-
-        <!-- Guidelines.md -->
-        <a href="./Guidelines.md" class="doc-link-card" target="_blank">
-          <div class="doc-info">
-            <span class="doc-title">Guidelines.md</span>
-            <span class="doc-desc">專案架構與協作流程守則</span>
-          </div>
-          <span class="arrow-icon">↗</span>
-        </a>
-      </div>
-    </section>
   </main>
 
   <footer>
