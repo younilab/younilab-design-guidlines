@@ -221,13 +221,13 @@ function Panel({title,extra,children,style}){
 
 const DATA = [
   {id:"001",name:"Youni Lab 優尼實驗室",tax:"90828417",owner:"王小明",phone:"02-2345-6789",industry:"軟體服務",market:"台灣",status:"營業中",capital:"NT$ 5,000,000",date:"2019/03/15"},
-  {id:"002",name:"未來科技股份有限公司",tax:"24681357",owner:"李大華",phone:"02-8765-4321",industry:"電子製造",market:"台灣",status:"營業中",capital:"NT$ 12,000,000",date:"2020/07/22"},
-  {id:"003",name:"智慧數據有限公司",tax:"13572468",owner:"陳美玲",phone:"03-1122-3344",industry:"資料分析",market:"日本",status:"停業",capital:"NT$ 800,000",date:"2018/11/03"},
-  {id:"004",name:"創新工坊企業社",tax:"55667788",owner:"張志明",phone:"04-5566-7788",industry:"設計顧問",market:"台灣",status:"營業中",capital:"NT$ 3,200,000",date:"2021/05/18"},
-  {id:"005",name:"木介空間設計有限公司",tax:"99887766",owner:"林彥廷",phone:"02-3344-5566",industry:"室內設計",market:"台灣",status:"營業中",capital:"NT$ 1,500,000",date:"2022/01/30"},
-  {id:"006",name:"和能機械股份有限公司",tax:"11223344",owner:"黃淑芬",phone:"07-9988-7766",industry:"機械工業",market:"美國",status:"停業",capital:"NT$ 9,800,000",date:"2017/09/12"},
-  {id:"007",name:"榮懋工業計器有限公司",tax:"66778899",owner:"吳建宏",phone:"02-6677-8899",industry:"精密儀器",market:"台灣",status:"營業中",capital:"NT$ 6,400,000",date:"2020/12/05"},
-  {id:"008",name:"春澤企業股份有限公司",tax:"33445566",owner:"蔡雅婷",phone:"06-3344-5566",industry:"貿易服務",market:"日本",status:"營業中",capital:"NT$ 2,100,000",date:"2023/04/08"},
+  {id:"002",name:"Byte 數據解析有限公司",tax:"24681357",owner:"李大華",phone:"02-8765-4321",industry:"電子製造",market:"台灣",status:"營業中",capital:"NT$ 12,000,000",date:"2020/07/22"},
+  {id:"003",name:"冬青數據解析有限公司",tax:"13572468",owner:"陳美玲",phone:"03-1122-3344",industry:"資料分析",market:"日本",status:"停業",capital:"NT$ 800,000",date:"2018/11/03"},
+  {id:"004",name:"鳴風視覺設計企業社",tax:"55667788",owner:"張志明",phone:"04-5566-7788",industry:"設計顧問",market:"台灣",status:"營業中",capital:"NT$ 3,200,000",date:"2021/05/18"},
+  {id:"005",name:"築山空間美學有限公司",tax:"99887766",owner:"林彥廷",phone:"02-3344-5566",industry:"室內設計",market:"台灣",status:"營業中",capital:"NT$ 1,500,000",date:"2022/01/30"},
+  {id:"006",name:"微光重工股份有限公司",tax:"11223344",owner:"黃淑芬",phone:"07-9988-7766",industry:"機械工業",market:"美國",status:"停業",capital:"NT$ 9,800,000",date:"2017/09/12"},
+  {id:"007",name:"半島數據解析有限公司",tax:"66778899",owner:"吳建宏",phone:"02-6677-8899",industry:"精密儀器",market:"台灣",status:"營業中",capital:"NT$ 6,400,000",date:"2020/12/05"},
+  {id:"008",name:"浮石儀器科技有限公司",tax:"33445566",owner:"蔡雅婷",phone:"06-3344-5566",industry:"貿易服務",market:"日本",status:"營業中",capital:"NT$ 2,100,000",date:"2023/04/08"},
 ];
 
 function StatusBadge({status}){
@@ -782,11 +782,11 @@ function CardListPage({windowWidth}){
   const [search,setSearch]=useState("");
   const clients=[
     {name:"Youni Lab 優尼實驗室",industry:"軟體服務",owner:"王小明",status:"營業中",tasks:9,initials:"YL",color:"#0A2B41"},
-    {name:"未來科技股份有限公司",industry:"電子製造",owner:"李大華",status:"營業中",tasks:3,initials:"未",color:"#0958D9"},
-    {name:"智慧數據有限公司",industry:"資料分析",owner:"陳美玲",status:"停業",tasks:0,initials:"智",color:"#7C3AED"},
-    {name:"創新工坊企業社",industry:"設計顧問",owner:"張志明",status:"營業中",tasks:5,initials:"創",color:"#389E0D"},
-    {name:"木介空間設計有限公司",industry:"室內設計",owner:"林彥廷",status:"營業中",tasks:2,initials:"木",color:"#D68C24"},
-    {name:"和能機械股份有限公司",industry:"機械工業",owner:"黃淑芬",status:"停業",tasks:0,initials:"和",color:"#CF1322"},
+    {name:"Byte數據解析有限公司",industry:"電子製造",owner:"李大華",status:"營業中",tasks:3,initials:"BT",color:"#0958D9"},
+    {name:"冬青數據解析有限公司",industry:"資料分析",owner:"陳美玲",status:"停業",tasks:0,initials:"冬",color:"#7C3AED"},
+    {name:"鳴風視覺設計企業社",industry:"設計顧問",owner:"張志明",status:"營業中",tasks:5,initials:"鳴",color:"#389E0D"},
+    {name:"築山空間美學有限公司",industry:"室內設計",owner:"林彥廷",status:"營業中",tasks:2,initials:"築",color:"#D68C24"},
+    {name:"微光重工股份有限公司",industry:"機械工業",owner:"黃淑芬",status:"停業",tasks:0,initials:"微",color:"#CF1322"},
   ];
   const filtered=clients.filter(c=>!search||c.name.includes(search)||c.owner.includes(search));
   const SB=({s})=>(
@@ -1183,7 +1183,7 @@ function DetailTabsPage(){
             <FI name="chevron-right" size={16} color="#595959" style={{transform:"rotate(180deg)"}}/>
           </div>
           <div style={{flex:1,minWidth:0}}>
-            <h1 style={{fontSize:20,fontWeight:600,margin:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>未來科技股份有限公司</h1>
+            <h1 style={{fontSize:20,fontWeight:600,margin:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>Byte 數據解析有限公司</h1>
             <p style={{fontSize:13,color:"#8C8C8C",margin:"4px 0 0"}}>客戶 ID：#002</p>
           </div>
           <button style={{height:40,padding:"0 16px",borderRadius:8,fontSize:14,fontWeight:500,border:"1px solid #D9D9D9",background:"#fff",cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6,flexShrink:0}}>
@@ -1207,7 +1207,7 @@ function DetailTabsPage(){
                 <span style={{fontSize:15,fontWeight:600,color:"#1F1F1F"}}>基本資料</span>
               </div>
               <div style={{padding:"8px 24px"}}>
-                <Row label="公司名稱">未來科技股份有限公司</Row>
+                <Row label="公司名稱">Byte 數據解析有限公司</Row>
                 <Row label="統一編號"><span style={{fontFamily:"var(--mono)",fontSize:13}}>24681357</span></Row>
                 <Row label="行業別">電子製造</Row>
                 <Row label="負責人">李大華</Row>
