@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youni Lab Design System & Guidelines Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A2B41;
+      --primary-hover: #2E4A5E;
+      --accent: #FDB338;
+      --fg: #0A0A0A;
+      --fg-muted: #595959;
+      --fg-light: #8C8C8C;
+      --bg: #FFFFFF;
+      --bg-subtle: #FAFAFA;
+      --border: #D9D9D9;
+      --border-light: #F0F0F0;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 30px rgba(10, 43, 65, 0.06);
+      --shadow-lg: 0 16px 40px rgba(10, 43, 65, 0.1);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-subtle);
+      color: var(--fg);
+      font-family: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Grid background pattern */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(10, 43, 65, 0.04) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 40px;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    .logo-img {
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-tag {
+      background: var(--primary);
+      color: var(--bg);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 100px;
+      width: 100%;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--fg-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(10, 43, 65, 0.15);
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .card-content h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: var(--fg-muted);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 44px;
+      padding: 0 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      border: none;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--bg);
+    }
+
+    .card:hover .btn-primary {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    .card:hover .btn-secondary {
+      background-color: var(--bg-subtle);
+      border-color: var(--primary);
+    }
+
+    .docs-section {
+      border-top: 1px solid var(--border);
+      padding-top: 48px;
+    }
+
+    .docs-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--fg-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .doc-link-card {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .doc-link-card:hover {
+      background: var(--bg);
+      border-color: var(--border);
+      transform: translateX(4px);
+    }
+
+    .doc-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .doc-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .doc-desc {
+      font-size: 12px;
+      color: var(--fg-light);
+    }
+
+    .arrow-icon {
+      font-size: 16px;
+      color: var(--fg-light);
+      transition: var(--transition);
+    }
+
+    .doc-link-card:hover .arrow-icon {
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border-light);
+      padding: 24px 40px;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--fg-light);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 20px;
+      }
+      main {
+        padding: 48px 16px 64px;
+      }
+      .hero h1 {
+        font-size: 32px;
+      }
+      .grid {
+        gap: 20px;
+      }
+      .card {
+        padding: 28px;
+      }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo-area">
+        <img src="./youni-logo-dark.png" alt="Youni Lab Logo" class="logo-img" onerror="this.src='./younilab_logo.png'">
+        <span class="brand-title">Youni Lab</span>
+        <span class="brand-tag">Design System</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Youni Lab 設計系統與規範</h1>
+      <p>提供一致的視覺語言、設計原則與網頁組件標準，建立高效的前端開發與設計協作模式。</p>
+    </section>
+
+    <div class="grid">
+      <!-- Card 1: Design Guidelines -->
+      <a href="./younilab-設計規範.html" class="card">
+        <div class="card-content">
+          <h2>
+            <span>設計規範</span>
+            <span style="color: var(--accent);">•</span>
+          </h2>
+          <p>整合品牌設計 Token。包含色彩系統、字體排版、基本 Token、圖標規範，以及按鈕、表單、資料展示等全套 UI 元件的互動式預覽與程式碼範例。</p>
+        </div>
+        <div class="card-footer">
+          <div class="btn btn-primary">
+            進入規範庫 <span>→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2: Page Templates -->
+      <a href="./younilab-頁面範本.html" class="card">
+        <div class="card-content">
+          <h2>
+            <span>頁面範本</span>
+            <span style="color: var(--accent);">•</span>
+          </h2>
+          <p>收錄標準網頁佈局範本。包含儀表板 (Dashboard)、列表頁、卡片列表頁、詳情頁、表單頁、步驟表單、設定頁、個人中心與登入頁等實用範本。</p>
+        </div>
+        <div class="card-footer">
+          <div class="btn btn-secondary">
+            查看頁面範本 <span>→</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Markdown documents section -->
+    <section class="docs-section">
+      <h3>團隊協作與開發文件 (Markdown)</h3>
+      <div class="docs-grid">
+        <!-- DESIGN.md -->
+        <a href="./DESIGN.md" class="doc-link-card" target="_blank">
+          <div class="doc-info">
+            <span class="doc-title">DESIGN.md</span>
+            <span class="doc-desc">設計語彙與原則規範說明</span>
+          </div>
+          <span class="arrow-icon">↗</span>
+        </a>
+
+        <!-- COMPONENTS.md -->
+        <a href="./COMPONENTS.md" class="doc-link-card" target="_blank">
+          <div class="doc-info">
+            <span class="doc-title">COMPONENTS.md</span>
+            <span class="doc-desc">組件規格與開發實踐文件</span>
+          </div>
+          <span class="arrow-icon">↗</span>
+        </a>
+
+        <!-- Guidelines.md -->
+        <a href="./Guidelines.md" class="doc-link-card" target="_blank">
+          <div class="doc-info">
+            <span class="doc-title">Guidelines.md</span>
+            <span class="doc-desc">專案架構與協作流程守則</span>
+          </div>
+          <span class="arrow-icon">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <span>Copyright © 2026 Youni Lab. All rights reserved.</span>
+      <span>Powered by GitHub Pages</span>
+    </div>
+  </footer>
+
+</body>
+</html>
